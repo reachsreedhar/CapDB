@@ -1,0 +1,7 @@
+{
+  "name": "ords",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
