@@ -1,0 +1,111 @@
+import { Component, Injectable, VERSION } from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { HttpClient } from '@angular/common/http';
+import { NgForm } from "@angular/forms";
+import { Observable } from "rxjs/Observable";
+import { Response } from "@angular/http";
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
+import * as _ from 'lodash';
+
+interface Col {
+  name: string;
+  type: string;
+}
+
+@Component({
+  selector: 'page-home',
+  templateUrl: 'home.html'
+})
+
+export class HomePage {
+  public url = 'http://10.10.3.10:8080/ords/cap/';
+  public result$: Observable<Col[]>;
+
+  constructor(public navCtrl: NavController, public http: HttpClient) {};
+
+  runAPICall (tab: string) {
+    console.log('Running API call...');
+
+    /*this.http.get(this.url + 'metadata-catalog' + '/' + tab + '/')
+      .subscribe(data => {
+    },
+    err => {
+      console.log("Not found!")
+    }); */
+    //console.log(VERSION.full);
+
+    /*this.result$ = this.http
+      .get<Col[]>(this.url + 'metadata-catalog' + '/' + tab + '/')
+      .map(data => _.values(data))
+      .do(console.log);*/
+
+    //this.result$.subscribe(members => this.members = members);
+
+    /*this.members = this.http
+      .get<Col[]>(this.url + 'metadata-catalog' + '/' + tab + '/')
+      .map(res => {
+        return res.json().results.map(col => {
+          return new SearchItem(
+            col.name,
+            col.type
+          );
+        });
+      });
+
+    console.log(this.members); */
+
+    //this.result$ = this.http.get(this.url + 'metadata-catalog' + '/' + tab + '/').map((res: Response) => res.json());
+
+    //console.log(this.result$);
+    this.doSearch(tab);
+
+
+  }
+
+  doSearch(table: string) {
+    /*this.loading = true;
+    this.http.get(this.url + 'metadata-catalog' + '/' + table + '/').subscribe( (data) => {
+      this.loading = false;
+      this.result$ = data;
+    })*/
+    let url2 = this.url + 'metadata-catalog' + '/' + table + '/';
+    console.log(url2);
+    this.results = this.http
+      .get(url2)
+      .map(data => _.values(data))
+      .do(console.log);
+  }
+
+  /*
+  search(table:string): Observable<Col[]> {
+    return this.http.get(this.url + 'metadata-catalog' + '/' + table + '/')
+            .map( res => {
+              let results = results.map( column => {
+                return new Col(
+                  column.name,
+                  column.type
+                );
+              });
+              return results;
+            });
+  }
+
+  search(table:string): Observable<Col[]> {
+    return this.http.get(this.url + 'metadata-catalog' + '/' + table + '/')
+              .map(res => {
+                return res.json().results.map(column => {
+                  return new Col(
+                    column.name,
+                    column.type
+                  );
+                });
+              });
+  }
+  */
+
+  getTableStructure(form: NgForm) {
+    this.runAPICall(form.value.tableName.toLowerCase());
+  }
+
+}

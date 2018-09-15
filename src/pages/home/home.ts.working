@@ -1,4 +1,4 @@
-import { Component, Injectable, VERSION } from '@angular/core';
+import { Component, Injectable, VERSION, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from "@angular/forms";
@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import * as _ from 'lodash';
 
-interface Col {
+interface Column {
   name: string;
   type: string;
 }
@@ -16,31 +16,21 @@ interface Col {
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
-}) 
+})
 
-export class HomePage {
-  public url = 'http://10.10.3.10:8080/ords/cap/';
+export class HomePage implements OnInit {
   results$: Observable<Column[]>;
+  public url = 'http://10.10.3.10:8080/ords/cap/';
 
-  constructor(public navCtrl: NavController, public http: HttpClient) {};
+  constructor(public navCtrl: NavController, public http: HttpClient) {}
 
-  runAPICall (tab: string) {
-    console.log('Running API call...');
-
-    this.doSearch(tab);
-  }
-
-  doSearch(table: string) {
-    let url2 = this.url + 'metadata-catalog' + '/' + table + '/';
+  ngOnInit () {
+    //let url2 = this.url + 'metadata-catalog' + '/' + table + '/';
+    let url2 = 'http://10.10.3.10:8080/ords/cap/metadata-catalog/cptra_users/';
     console.log(url2);
     this.results$ = this.http
       .get<Column[]>(url2)
       .map(data => _.values(data))
       .do(console.log);
   }
-
-  getTableStructure(form: NgForm) {
-    this.runAPICall(form.value.tableName.toLowerCase());
-  }
-
 }
