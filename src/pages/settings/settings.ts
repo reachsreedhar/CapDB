@@ -14,15 +14,6 @@ export class SettingsPage {
   constructor(private settingsService: SettingsService, private navCtrl: NavController) {}
 
   onClose() {
-    console.log('onClose');
     this.navCtrl.setRoot(TabsPage);
   }
-
-  /*onCancel() {
-    console.log('onCancel');
-  }
-
-  presentPopover(myEvent) {
-    console.log(settingsService.zone.kind);
-  }*/
 }
