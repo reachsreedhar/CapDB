@@ -10,13 +10,12 @@ import * as _ from 'lodash';
 
 import { SettingsService } from "../../services/settings";
 
-/*
 interface Table {
   name: [];
   primaryKey: [];
   columns: [];
   weblinks: [];
-}*/
+}
 
 @Component({
   selector: 'page-home',

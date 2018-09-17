@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { Toggle, NavController } from 'ionic-angular';
 import { SettingsService } from "../../services/settings";
+import { TabsPage } from "../tabs/tabs";
 import { NgForm } from "@angular/forms";
 
 @Component({
@@ -12,12 +13,12 @@ export class SettingsPage {
 
   constructor(private settingsService: SettingsService, private navCtrl: NavController) {}
 
-  /*onSave() {
-    console.log('onSave');
-    console.log(this.toppings);
+  onClose() {
+    console.log('onClose');
+    this.navCtrl.setRoot(TabsPage);
   }
 
-  onCancel() {
+  /*onCancel() {
     console.log('onCancel');
   }
 

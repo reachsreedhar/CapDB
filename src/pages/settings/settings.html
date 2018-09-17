@@ -18,4 +18,5 @@
         <ion-option *ngFor="let db of settingsService.dbSettings">{{ db }}</ion-option>
       </ion-select>
     </ion-item>
+    <button ion-button small round (click)="onClose()">Go Back</button>
 </ion-content>
