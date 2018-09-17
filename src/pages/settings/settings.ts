@@ -11,7 +11,7 @@ import { NgForm } from "@angular/forms";
 })
 export class SettingsPage {
 
-  constructor(private settingsService: SettingsService, private navCtrl: NavController) {}
+  constructor(private navCtrl: NavController) {}
 
   onClose() {
     this.navCtrl.setRoot(TabsPage);

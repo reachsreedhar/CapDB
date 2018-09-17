@@ -8,7 +8,6 @@ import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { HomePage } from '../pages/home/home';
 import { HelpPage } from '../pages/help/help';
-import { DbconfigPage } from '../pages/dbconfig/dbconfig';
 import { TabsPage } from '../pages/tabs/tabs';
 import { HttpClientModule } from '@angular/common/http';
 import { SettingsService } from "../services/settings";
@@ -20,7 +19,6 @@ import { DbdescribePage } from "../pages/dbdescribe/dbdescribe";
     MyApp,
     AboutPage,
     HelpPage,
-    DbconfigPage,
     TabsPage,
     HomePage,
     SettingsPage,
@@ -36,7 +34,6 @@ import { DbdescribePage } from "../pages/dbdescribe/dbdescribe";
     MyApp,
     AboutPage,
     HelpPage,
-    DbconfigPage,
     TabsPage,
     HomePage,
     SettingsPage,
