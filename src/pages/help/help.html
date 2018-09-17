@@ -1,11 +1,20 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
+    <ion-buttons start>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title align="center">
       Help
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h1>This is the Help Page</h1>
+  <p>CapDB needs ORDS configured on Oracle Database. Below are few references that would assist in
+    configuring ORDS on a Oracle database and help understand how CapDB is built</p>
+  <a href="https://www.oracle.com/database/technologies/appdev/rest.html">Oracle ORDS</a><br>
+  <a href="https://ionicframework.com/docs/">Ionic Framework Documentation</a><br>
+  <a href="https://cordova.apache.org/docs/en/latest/">Cordova Documentation</a>
 </ion-content>

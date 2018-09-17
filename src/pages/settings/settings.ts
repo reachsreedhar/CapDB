@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 
-import { Toggle } from 'ionic-angular';
+import { Toggle, NavController } from 'ionic-angular';
 import { SettingsService } from "../../services/settings";
+import { TabsPage } from "../tabs/tabs";
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: 'page-settings',
@@ -9,13 +11,18 @@ import { SettingsService } from "../../services/settings";
 })
 export class SettingsPage {
 
-  constructor(private settingsService: SettingsService) {}
+  constructor(private settingsService: SettingsService, private navCtrl: NavController) {}
 
-  onToggle(toggle: Toggle) {
-    this.settingsService.setBackground(toggle.checked);
+  onClose() {
+    console.log('onClose');
+    this.navCtrl.setRoot(TabsPage);
   }
 
-  checkAltBackground() {
-    return this.settingsService.isAltBackground();
+  /*onCancel() {
+    console.log('onCancel');
   }
+
+  presentPopover(myEvent) {
+    console.log(settingsService.zone.kind);
+  }*/
 }

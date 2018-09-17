@@ -1,38 +1,19 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      CapDB
-    </ion-title>
+    <ion-buttons start>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title align="center">CapDB</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <form #f="ngForm" (ngSubmit)="getTableStructure(f)">
-    <ion-list>
-      <ion-item>
-        <ion-label fixed>Table name</ion-label>
-        <ion-input
-          [ngModel]="ccia" (ngModelChange)="ccia = $event.toLocaleUpperCase()"
-          type="text"
-          name="tableName"
-          placeholder="table name"
-          ngModel
-          required>
-        </ion-input>
-      </ion-item>
-    </ion-list>
-    <button
-      ion-button
-      type="submit"
-      block
-      [disabled]="!f.valid">Display Table Structure
-    </button>
-  </form>
-  <ul *ngIf="results$ | async as results else noData">
-      <table style="width:100%" border="1px solid black" >
-        <tr><th align="left">Colum Name</th><th align="left">Data Type</th></tr>
-        <tr *ngFor="let result of results[2]"><td>{{ result.name | uppercase }}</td><td>{{ result.type }}</td></tr>
-      </table>
-  </ul>
-  <ng-template #noData>Table does not exist!</ng-template>
+  <button
+    ion-button
+    type="Database Table Structures"
+    block
+    (click)="getTableStructure()">Table Structure
+  </button>
 </ion-content>
