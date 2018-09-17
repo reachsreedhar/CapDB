@@ -23,8 +23,6 @@ interface Table {
 })
 
 export class DbdescribePage {
-  //public url = 'http://10.10.3.10:8080/ords/cap/';
-  public url = 'https://10.10.3.10:8443/ords/cap/';
   results$: Observable<Table[]>;
   public tarr = [];
 
@@ -37,18 +35,17 @@ export class DbdescribePage {
   }
 
   doSearch(table: string) {
-    //let url2 = this.url + 'metadata-catalog' + '/' + table + '/';
-    let url2 = 'https://' + this.settingsService.dbSet.ip + ':8443/ords/cap/' + 'metadata-catalog' + '/' + table + '/';
-    console.log('from Settings Page : ' + url2);
+    let url = 'https://' + this.settingsService.dbSet.ip + ':8443/ords/cap/' + 'metadata-catalog' + '/' + table + '/';
+    console.log('from Settings Page : ' + url);
     this.results$ = this.http
-      .get<Column[]>(url2)
+      .get<Column[]>(url)
       .map(data => _.values(data))
       .do(console.log);
 
     //let tempresult = this.result$[2];
     //this.results$.function(value) { console.log(value);};
 
-    this.http.get(url2).subscribe((data) => {
+    this.http.get(url).subscribe((data) => {
       console.log(data.members);
       this.tarr = data;
     });
