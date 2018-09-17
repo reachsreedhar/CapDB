@@ -13,6 +13,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { HttpClientModule } from '@angular/common/http';
 import { SettingsService } from "../services/settings";
 import { SettingsPage } from "../pages/settings/settings";
+import { DbdescribePage } from "../pages/dbdescribe/dbdescribe";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SettingsPage } from "../pages/settings/settings";
     DbconfigPage,
     TabsPage,
     HomePage,
-    SettingsPage
+    SettingsPage,
+    DbdescribePage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { SettingsPage } from "../pages/settings/settings";
     DbconfigPage,
     TabsPage,
     HomePage,
-    SettingsPage
+    SettingsPage,
+    DbdescribePage
   ],
   providers: [
     StatusBar,

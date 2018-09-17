@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DbconfigPage } from '../dbconfig/dbconfig';
+import { HomePage } from '../home/home';
 import { HelpPage } from '../help/help';
 import { AboutPage } from '../about/about';
 
@@ -9,7 +9,7 @@ import { AboutPage } from '../about/about';
 })
 
 export class TabsPage {
-  dbconfigPage = DbconfigPage;
+  homePage = HomePage;
   helpPage = HelpPage;
   aboutPage = AboutPage;
 }
