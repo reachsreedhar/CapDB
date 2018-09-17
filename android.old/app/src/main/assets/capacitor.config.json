@@ -1,7 +1,0 @@
-{
-  "appId": "io.ionic.starter",
-  "appName": "ords",
-  "bundledWebRuntime": false,
-  "webDir": "www",
-  "allowMixedContent": true
-}
